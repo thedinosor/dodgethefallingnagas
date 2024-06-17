@@ -1,0 +1,71 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    background-image: url('bg.png');
+    background-size: cover;
+}
+
+#game-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+#player {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#start-screen, #end-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#start-button, #restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.falling-object {
+    position: absolute;
+    width: 50px; /* Adjust as needed based on your images */
+    height: 50px; /* Adjust as needed based on your images */
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-sizing: content-box; /* Ensures width and height include only content */
+}
+
+#end-screen {
+    display: none;
+}
+
