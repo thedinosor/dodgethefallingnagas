@@ -22,12 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let fallingObjects = [];
 
     const startGame = () => {
+        // Clear all intervals
+        clearInterval(gameInterval);
+        clearInterval(objectInterval);
+        clearInterval(idleAnimationInterval);
+        clearInterval(walkAnimationInterval);
+
+        // Reset variables to initial state
         score = 0;
         speedMultiplier = 1;
         playerPosition = 50;
         isMovingLeft = false;
         isMovingRight = false;
+        fallingObjects.forEach(object => object.remove()); // Remove all falling objects from DOM
         fallingObjects = [];
+
+        // Reset UI elements
         themeMusic.currentTime = 0;
         themeMusic.play();
         scoreDisplay.textContent = 'Score: 0';
@@ -35,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         endScreen.style.display = 'none';
         player.style.backgroundImage = 'url("players/idle.png")';
         player.style.left = playerPosition + '%';
+
+        // Start countdown and game loop
         startCountdown();
     };
 
@@ -225,8 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     startButton.addEventListener('click', startGame);
-    restartButton.addEventListener('click', startGame);
+    restartButton.addEventListener('click', startGame); // Bind restart button to startGame function
 
-    setInterval(movePlayer, 1000 / 60);
+    setInterval(movePlayer, 1000 / 60); // Continuous player movement
 });
 
